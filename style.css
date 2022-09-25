@@ -16,6 +16,8 @@ body {
 .content {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header,
@@ -29,15 +31,55 @@ body {
   font-size: 24px;
 }
 
-.game-board {
+.board {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, var(--cell-size));
   grid-template-rows: repeat(3, var(--cell-size));
-  background-color: wheat;
+  background-color: white;
   border: solid var(--main-color);
 }
 
-.game-cell {
+.cell {
   border: 2px solid var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell.player-x::before,
+.cell.player-x::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--cell-size) * 0.15);
+  height: var(--cell-size);
+  background-color: black;
+}
+
+.cell.player-x::after {
+  transform: rotate(-45deg);
+}
+
+.cell.cell.player-x::before {
+  transform: rotate(45deg);
+}
+
+.cell.player-o::before,
+.cell.player-o::after {
+  content: '';
+  position: absolute;
+}
+
+.cell.cell.player-o::before {
+  width: calc(var(--cell-size) * 0.85);
+  height: calc(var(--cell-size) * 0.85);
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.cell.cell.player-o::after {
+  width: calc(var(--cell-size) * 0.55);
+  height: calc(var(--cell-size) * 0.55);
+  border-radius: 50%;
+  background-color: #ffffff;
 }
