@@ -1,0 +1,43 @@
+:root {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  --cell-size: 100px;
+  --main-color: rgba(0, 255, 255, 0.548);
+
+}
+
+body {
+  margin: 0px;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.header,
+.footer {
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  font-size: 24px;
+}
+
+.game-board {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size));
+  grid-template-rows: repeat(3, var(--cell-size));
+  background-color: wheat;
+  border: solid var(--main-color);
+}
+
+.game-cell {
+  border: 2px solid var(--main-color);
+}
